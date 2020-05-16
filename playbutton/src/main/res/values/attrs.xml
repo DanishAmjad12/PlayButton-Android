@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="play_button">
+        <attr name="play_button_icon" format="reference"/>
+        <attr name="pause_button_icon" format="reference"/>
+        <attr name="play_button_default_background" format="reference"/>
+        <attr name="card_background_color" format="reference"/>
+        <attr name="progress_color" format="reference"/>
+    </declare-styleable>
+</resources>

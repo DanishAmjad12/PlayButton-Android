@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="8dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="10dp"
+        android:id="@+id/cardView"
+        android:padding="16dp"
+        android:layout_height="80dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:id="@+id/frameContainer"
+            android:background="@drawable/background"
+            android:layout_height="80dp">
+
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:progress="0"
+                android:id="@+id/progress"
+                android:scaleY="40"
+                android:progressTint="@color/progress_background"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_height="wrap_content"/>
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabPlayButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_gravity="left|center_vertical"
+                app:backgroundTint="@color/fab_background"
+                app:elevation="7dp"
+                app:fabSize="normal"
+                app:srcCompat="@drawable/ic_play_arrow" />
+
+
+
+        </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
