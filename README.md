@@ -72,7 +72,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
  # Developed By
  
  ```
- DANISH AMJAD
+ DANISH AMJAD follow me 👇
  ```
  * Twitter (https://twitter.com/DanishAmjad10)
  * Medium (https://medium.com/@DaniAmjad)
