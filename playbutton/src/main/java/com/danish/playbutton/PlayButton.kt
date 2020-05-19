@@ -1,6 +1,5 @@
 package com.danish.playbutton
 
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
@@ -21,7 +20,7 @@ class PlayButton @JvmOverloads constructor(
 
     private val TAG = PlayButton::class.java.simpleName
 
-    lateinit var statusChecker: Runnable
+    lateinit var progressUpdate: Runnable
 
     // Data Values
     private var isPlayButtonStart = false
@@ -125,6 +124,11 @@ class PlayButton @JvmOverloads constructor(
         return AppCompatResources.getDrawable(context, resId)!!
     }
 
+    /**
+     * this method is used to play the audio
+     * @param mContext = view context
+     * @param fileName = audio file name
+     */
     fun playAudio(mContext: Context, fileName: String) {
         try {
             mMediaPlayer = MediaPlayer.create(
@@ -135,7 +139,7 @@ class PlayButton @JvmOverloads constructor(
                 progress.progress = 0
                 progress.max = 0
                 isPlayButtonStart = false
-                handler.removeCallbacks(statusChecker)
+                handler.removeCallbacks(progressUpdate)
                 fabPlayButton.setImageDrawable(getDrawable(defaultPlayIcon))
             }
             mMediaPlayer.start()
@@ -147,11 +151,14 @@ class PlayButton @JvmOverloads constructor(
 
     }
 
+    /**
+     * this method will stop the audio-- call it onDestroy() method
+     */
     fun stopAudio() {
         try {
             progress.progress = 0
             progress.max = 0
-            handler.removeCallbacks(statusChecker)
+            handler.removeCallbacks(progressUpdate)
             mMediaPlayer.release()
             fabPlayButton.setImageDrawable(getDrawable(defaultPlayIcon))
 
@@ -162,12 +169,15 @@ class PlayButton @JvmOverloads constructor(
     }
 
 
+    /**
+     * this method will pause the audio-- call it onPause() method
+     */
     fun pauseAudio() {
         try {
             isPlayButtonStart=false
             progress.progress = 0
             progress.max = 0
-            handler.removeCallbacks(statusChecker)
+            handler.removeCallbacks(progressUpdate)
             mMediaPlayer.pause()
             fabPlayButton.setImageDrawable(getDrawable(defaultPlayIcon))
 
@@ -178,24 +188,32 @@ class PlayButton @JvmOverloads constructor(
     }
 
 
+    /**
+     * this method will update the progress when audio play
+     */
     fun updateProgress() {
         progress.max = mMediaPlayer.duration
         val interval: Long = 100
 
-        statusChecker = object : Runnable {
+        progressUpdate = object : Runnable {
             override fun run() {
                 progress.progress = mMediaPlayer.currentPosition
                 handler.postDelayed(this, interval)
             }
         }
-        statusChecker.run()
+        progressUpdate.run()
     }
 
-    fun setAudioFileName(fileName: String): String {
+    /**
+     * this method is used to set the audio file
+     */
+    fun setAudioFileName(fileName: String) {
         audioFileName = fileName
-        return audioFileName
     }
 
+    /**
+     * this is a interface for play button click
+     */
     interface OnButtonListener {
         fun onPlayButtonClicked(playButton: PlayButton)
     }
