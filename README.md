@@ -9,7 +9,7 @@
 # Installation 💻
 
 Add this in your app's build.gradle file:
-```
+``` java
 dependencies {
 	        implementation 'com.github.DanishAmjad12:PlayButton-Android:1.0'
 	}
@@ -17,7 +17,7 @@ dependencies {
   
 # Usage 🧾
 
-```
+``` XML
   <com.danish.playbutton.PlayButton
         android:layout_width="wrap_content"
         android:id="@+id/playButton"
@@ -43,7 +43,7 @@ All customizable attributes for Play Button
 
 # Play Button Listener
 
-```
+``` kotlin 
 override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
