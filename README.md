@@ -1,5 +1,5 @@
 # PlayButton-Android
-👏 The Zedge App Play Button Effect developed in Android
+👏 The Zedge Android App Play Button Effect developed in Android using Kotlin.
 
 [![](https://jitpack.io/v/DanishAmjad12/PlayButton-Android.svg)](https://jitpack.io/#DanishAmjad12/PlayButton-Android)
 
