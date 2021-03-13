@@ -80,7 +80,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
  * YouTube (https://www.youtube.com/channel/UC06GphxCS1gzZhdT9dn6kQA?view_as=subscriber)
  
  #  License
- Copyright 2020 Danish Amjad
+ Copyright 2021 Danish Amjad
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
